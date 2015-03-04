@@ -27,7 +27,7 @@ public class var14 {
             mas[i] = Integer.parseInt(reader.readLine());
         
         }
-        out.println("Polindroms:");
+        out.println("Полиндромы:");
         for (int i = 0; i < n; i++){
         	
             String str = revers1(mas[i]);
