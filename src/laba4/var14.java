@@ -2,6 +2,7 @@ package laba4;
 
 import static java.lang.System.out;
 import static java.lang.Math.abs;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -11,24 +12,31 @@ import java.io.InputStreamReader;
  *ѕередать объекты в метод, мен€ющий местами строки с максимальным и минимальным элементами k-го столбца.
  *¬ывести новые матрицы и номера строк.
  */
-public class var14 {
+public class var14 
+{
 	//метод, мен€ющий местами строки с максимальным и минимальным элементами k-го столбца
-    public static Matrix function(Matrix a,byte k){
+    public static Matrix function(Matrix a,byte k)
+    {
+    	
         byte min=a.mas[0][k];	
         byte minPosition=0;
         byte max=min;
         byte maxPosition=0;
-        for (byte i = 0; i < a.mas.length; i++ ){	//нахождение maxPosition и minPosition
-            if (min>a.mas[i][k]){					//
+        for (byte i = 0; i < a.mas.length; i++ )	//нахождение maxPosition и minPosition
+        {	
+            if (min>a.mas[i][k])
+            {										//
                 min = a.mas[i][k];					//
                 minPosition = i;					//
             }
-            if (max<a.mas[i][k]){					//	
+            if (max<a.mas[i][k])
+            {										//	
                 max = a.mas[i][k];					//
                 maxPosition = i;					//
             }
         }
-        for (byte i = 0; i <a.mas.length; i++){				//мен€ем местами строки
+        for (byte i = 0; i <a.mas.length; i++)				//мен€ем местами строки
+        {				
             byte c = a.mas[minPosition][i];					//
             a.mas[minPosition][i] = a.mas[maxPosition][i];	//
             a.mas[maxPosition][i] = c;
@@ -38,10 +46,14 @@ public class var14 {
     }
     
 //метод, вывод€щий массив
-    public static void print_mas(Matrix mass,String text,byte i){
+    public static void print_mas(Matrix mass,String text,byte i)
+    {
+    	
             out.println(text + (i+1));
-            for (byte j = 0; j < mass.mas.length; j++) {
-                for (byte k = 0; k < mass.mas[j].length; k++){
+            for (byte j = 0; j < mass.mas.length; j++) 
+            {
+                for (byte k = 0; k < mass.mas[j].length; k++)
+                {
                     out.print(mass.mas[j][k]);
                     if (k+1 !=mass.mas[j].length)
                         out.print("\t||\t");
@@ -51,17 +63,24 @@ public class var14 {
             out.println();
     }
     
-    public static class Matrix{
+    public static class Matrix
+    {
+    	
         private byte mas[][];			//объ€вление массива
-        Matrix(byte n){					//конструктор
+        Matrix(byte n)
+        {					//конструктор
             mas = new byte[n][n];		//выделение пам€ти под массив n на n
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             for (byte i = 0; i < n; i++)
-                for (byte j = 0; j < n; j++){
-                    try{
+                for (byte j = 0; j < n; j++)
+                {
+                    try
+                    {
                         out.printf("¬ведите mas[%d][%d]\n", (i+1),(j+1));		//ввод значение в массив
                         mas[i][j]  = Byte.parseByte(reader.readLine());			//
-                    } catch (Exception e){										//ввод случайного значени€ при
+                    } 
+                    catch (Exception e)
+                    {										//ввод случайного значени€ при
                         out.println("ќшибка ввода " + e);						//ошибке ввода
                         mas[i][j] = (byte) ( ( Math.random() * 1000 ) % 128);	//
                     }
@@ -70,45 +89,58 @@ public class var14 {
     }
     
     
-    public static void main(String[] args){
+    public static void main(String[] args)
+    {
+    	
         byte n = 0, m = 0, k = 0;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         
 //ввод размерности Matrix[n][n], массива объектов Matrix[m] и номер столбца дл€ поиска min и max значений
-        try {
+        try 
+        {
             out.println("¬ведите n:");
             n = (byte) abs(Byte.parseByte(reader.readLine()));		//ввод n = |n| т.к. размерность не может быть отрицательной
-        } catch (Exception e){
+        } 
+        catch (Exception e)
+        {
             out.println("ќшибка ввода:" + e);
             n = (byte) ( ( Math.random() * 100 ) % 11);			//ввод случайного значени€ при ошибке ввода
             out.printf("n = %d\n", n);
         }
-        try {
+        try 
+        {
             out.println("¬ведите m:");
             m = (byte) abs(Byte.parseByte(reader.readLine()));		//ввод m = |m| т.к. размерность не может быть отрицательной
-        } catch (Exception e){
+        }
+        catch (Exception e)
+        {
             out.println("ќшибка ввода:" + e);
             m = (byte) ( ( Math.random() * 100 ) % 11);			//ввод случайного значени€ при ошибке ввода 
             out.printf("m = %d\n", m);
         }
-        try {
+        try 
+        {
             out.println("¬ведите номер столбца:");
             k = (byte) abs(Byte.parseByte(reader.readLine()));		//ввод k = |k| т.к. размерность не может быть отрицательной
             if (k >= n)												//значение k должно быть в интервале [0, n - 1]
                 k = (byte) (n - 1); 								//
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             out.println("ќшибка ввода:" + e);						//при ошибке ввода k = 0
             k = 0;      
         }
         
-        if (n != 0 && m != 0){
+        if (n != 0 && m != 0)
+        {
             Matrix[] mass = new Matrix[m]; //объ€вление массива объектов размерности m
             for (byte i = 0; i < m; i++)
             {
                 mass[i] = new Matrix(n);	//инициализаци€ массива объектов
             }
 
-            for (byte i = 0; i < mass.length; i++){
+            for (byte i = 0; i < mass.length; i++)
+            {
                 print_mas(mass[i],"ћассив є",i); //вывод объекта из массива
                 mass[i] = function(mass[i],k);	// вызов матода, (объект из массива, номер столбца)
                 out.println();					
@@ -119,9 +151,8 @@ public class var14 {
             out.printf("mass.length=%d, mass[0].mas.length=%d, mass[0].mas[0].length=%d\n"	//вывод размерности
                        ,mass.length,    mass[0].mas.length,    mass[0].mas[0].length);
         }        
-        else{ 
+        else 
             out.println("m и n не могут быть равны 0");            
-        }
     }
     
 }
