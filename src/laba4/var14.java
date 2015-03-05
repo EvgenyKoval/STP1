@@ -16,8 +16,7 @@ public class var14
 {
 	//метод, мен€ющий местами строки с максимальным и минимальным элементами k-го столбца
     public static Matrix function(Matrix a,byte k)
-    {
-    	
+    {    	
         byte min=a.mas[0][k];	
         byte minPosition=0;
         byte max=min;
@@ -35,6 +34,7 @@ public class var14
                 maxPosition = i;					//
             }
         }
+        if (maxPosition != minPosition)
         for (byte i = 0; i <a.mas.length; i++)				//мен€ем местами строки
         {				
             byte c = a.mas[minPosition][i];					//
