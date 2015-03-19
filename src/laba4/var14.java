@@ -7,21 +7,21 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
- *Определить класс Matrix размерности (n x n).
- *Объявить массив из m объектов.
- *Передать объекты в метод, меняющий местами строки с максимальным и минимальным элементами k-го столбца.
- *Вывести новые матрицы и номера строк.
+ *РћРїСЂРµРґРµР»РёС‚СЊ РєР»Р°СЃСЃ Matrix СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё (n x n).
+ *РћР±СЉСЏРІРёС‚СЊ РјР°СЃСЃРёРІ РёР· m РѕР±СЉРµРєС‚РѕРІ.
+ *РџРµСЂРµРґР°С‚СЊ РѕР±СЉРµРєС‚С‹ РІ РјРµС‚РѕРґ, РјРµРЅСЏСЋС‰РёР№ РјРµСЃС‚Р°РјРё СЃС‚СЂРѕРєРё СЃ РјР°РєСЃРёРјР°Р»СЊРЅС‹Рј Рё РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЌР»РµРјРµРЅС‚Р°РјРё k-РіРѕ СЃС‚РѕР»Р±С†Р°.
+ *Р’С‹РІРµСЃС‚Рё РЅРѕРІС‹Рµ РјР°С‚СЂРёС†С‹ Рё РЅРѕРјРµСЂР° СЃС‚СЂРѕРє.
  */
 public class var14 
 {
-	//метод, меняющий местами строки с максимальным и минимальным элементами k-го столбца
+	//РјРµС‚РѕРґ, РјРµРЅСЏСЋС‰РёР№ РјРµСЃС‚Р°РјРё СЃС‚СЂРѕРєРё СЃ РјР°РєСЃРёРјР°Р»СЊРЅС‹Рј Рё РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЌР»РµРјРµРЅС‚Р°РјРё k-РіРѕ СЃС‚РѕР»Р±С†Р°
     public static Matrix function(Matrix a,byte k)
     {    	
         byte min=a.mas[0][k];	
         byte minPosition=0;
         byte max=min;
         byte maxPosition=0;
-        for (byte i = 0; i < a.mas.length; i++ )	//нахождение maxPosition и minPosition
+        for (byte i = 0; i < a.mas.length; i++ )	//РЅР°С…РѕР¶РґРµРЅРёРµ maxPosition Рё minPosition
         {	
             if (min>a.mas[i][k])
             {										//
@@ -35,17 +35,17 @@ public class var14
             }
         }
         if (maxPosition != minPosition)
-        for (byte i = 0; i <a.mas.length; i++)				//меняем местами строки
+        for (byte i = 0; i <a.mas.length; i++)				//РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё СЃС‚СЂРѕРєРё
         {				
             byte c = a.mas[minPosition][i];					//
             a.mas[minPosition][i] = a.mas[maxPosition][i];	//
             a.mas[maxPosition][i] = c;
         }
-        out.printf("maxPosition = %d, minPosition = %d\n",maxPosition, minPosition);	//вывод maxPosition и minPosition
+        out.printf("maxPosition = %d, minPosition = %d\n",maxPosition, minPosition);	//РІС‹РІРѕРґ maxPosition Рё minPosition
         return a;
     }
     
-//метод, выводящий массив
+//РјРµС‚РѕРґ, РІС‹РІРѕРґСЏС‰РёР№ РјР°СЃСЃРёРІ
     public static void print_mas(Matrix mass,String text,byte i)
     {
     	
@@ -66,22 +66,22 @@ public class var14
     public static class Matrix
     {
     	
-        private byte mas[][];			//объявление массива
+        private byte mas[][];			//РѕР±СЉСЏРІР»РµРЅРёРµ РјР°СЃСЃРёРІР°
         Matrix(byte n)
-        {					//конструктор
-            mas = new byte[n][n];		//выделение памяти под массив n на n
+        {					//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+            mas = new byte[n][n];		//РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РїРѕРґ РјР°СЃСЃРёРІ n РЅР° n
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             for (byte i = 0; i < n; i++)
                 for (byte j = 0; j < n; j++)
                 {
                     try
                     {
-                        out.printf("Введите mas[%d][%d]\n", (i+1),(j+1));		//ввод значение в массив
+                        out.printf("Р’РІРµРґРёС‚Рµ mas[%d][%d]\n", (i+1),(j+1));		//РІРІРѕРґ Р·РЅР°С‡РµРЅРёРµ РІ РјР°СЃСЃРёРІ
                         mas[i][j]  = Byte.parseByte(reader.readLine());			//
                     } 
                     catch (Exception e)
-                    {										//ввод случайного значения при
-                        out.println("Ошибка ввода " + e);						//ошибке ввода
+                    {										//РІРІРѕРґ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РїСЂРё
+                        out.println("РћС€РёР±РєР° РІРІРѕРґР° " + e);						//РѕС€РёР±РєРµ РІРІРѕРґР°
                         mas[i][j] = (byte) ( ( Math.random() * 1000 ) % 128);	//
                     }
                 }
@@ -95,64 +95,64 @@ public class var14
         byte n = 0, m = 0, k = 0;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         
-//ввод размерности Matrix[n][n], массива объектов Matrix[m] и номер столбца для поиска min и max значений
+//РІРІРѕРґ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё Matrix[n][n], РјР°СЃСЃРёРІР° РѕР±СЉРµРєС‚РѕРІ Matrix[m] Рё РЅРѕРјРµСЂ СЃС‚РѕР»Р±С†Р° РґР»СЏ РїРѕРёСЃРєР° min Рё max Р·РЅР°С‡РµРЅРёР№
         try 
         {
-            out.println("Введите n:");
-            n = (byte) abs(Byte.parseByte(reader.readLine()));		//ввод n = |n| т.к. размерность не может быть отрицательной
+            out.println("Р’РІРµРґРёС‚Рµ n:");
+            n = (byte) abs(Byte.parseByte(reader.readLine()));		//РІРІРѕРґ n = |n| С‚.Рє. СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕР№
         } 
         catch (Exception e)
         {
-            out.println("Ошибка ввода:" + e);
-            n = (byte) ( ( Math.random() * 100 ) % 11);			//ввод случайного значения при ошибке ввода
+            out.println("РћС€РёР±РєР° РІРІРѕРґР°:" + e);
+            n = (byte) ( ( Math.random() * 100 ) % 11);			//РІРІРѕРґ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РїСЂРё РѕС€РёР±РєРµ РІРІРѕРґР°
             out.printf("n = %d\n", n);
         }
         try 
         {
-            out.println("Введите m:");
-            m = (byte) abs(Byte.parseByte(reader.readLine()));		//ввод m = |m| т.к. размерность не может быть отрицательной
+            out.println("Р’РІРµРґРёС‚Рµ m:");
+            m = (byte) abs(Byte.parseByte(reader.readLine()));		//РІРІРѕРґ m = |m| С‚.Рє. СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕР№
         }
         catch (Exception e)
         {
-            out.println("Ошибка ввода:" + e);
-            m = (byte) ( ( Math.random() * 100 ) % 11);			//ввод случайного значения при ошибке ввода 
+            out.println("РћС€РёР±РєР° РІРІРѕРґР°:" + e);
+            m = (byte) ( ( Math.random() * 100 ) % 11);			//РІРІРѕРґ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РїСЂРё РѕС€РёР±РєРµ РІРІРѕРґР° 
             out.printf("m = %d\n", m);
         }
         try 
         {
-            out.println("Введите номер столбца:");
-            k = (byte) abs(Byte.parseByte(reader.readLine()));		//ввод k = |k| т.к. размерность не может быть отрицательной
-            if (k >= n)												//значение k должно быть в интервале [0, n - 1]
+            out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЃС‚РѕР»Р±С†Р°:");
+            k = (byte) abs(Byte.parseByte(reader.readLine()));		//РІРІРѕРґ k = |k| С‚.Рє. СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕР№
+            if (k >= n)												//Р·РЅР°С‡РµРЅРёРµ k РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ РёРЅС‚РµСЂРІР°Р»Рµ [0, n - 1]
                 k = (byte) (n - 1); 								//
         } 
         catch (Exception e) 
         {
-            out.println("Ошибка ввода:" + e);						//при ошибке ввода k = 0
+            out.println("РћС€РёР±РєР° РІРІРѕРґР°:" + e);						//РїСЂРё РѕС€РёР±РєРµ РІРІРѕРґР° k = 0
             k = 0;      
         }
         
         if (n != 0 && m != 0)
         {
-            Matrix[] mass = new Matrix[m]; //объявление массива объектов размерности m
+            Matrix[] mass = new Matrix[m]; //РѕР±СЉСЏРІР»РµРЅРёРµ РјР°СЃСЃРёРІР° РѕР±СЉРµРєС‚РѕРІ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё m
             for (byte i = 0; i < m; i++)
             {
-                mass[i] = new Matrix(n);	//инициализация массива объектов
+                mass[i] = new Matrix(n);	//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјР°СЃСЃРёРІР° РѕР±СЉРµРєС‚РѕРІ
             }
 
             for (byte i = 0; i < mass.length; i++)
             {
-                print_mas(mass[i],"Массив №",i); //вывод объекта из массива
-                mass[i] = function(mass[i],k);	// вызов матода, (объект из массива, номер столбца)
+                print_mas(mass[i],"РњР°СЃСЃРёРІ в„–",i); //РІС‹РІРѕРґ РѕР±СЉРµРєС‚Р° РёР· РјР°СЃСЃРёРІР°
+                mass[i] = function(mass[i],k);	// РІС‹Р·РѕРІ РјР°С‚РѕРґР°, (РѕР±СЉРµРєС‚ РёР· РјР°СЃСЃРёРІР°, РЅРѕРјРµСЂ СЃС‚РѕР»Р±С†Р°)
                 out.println();					
-                print_mas(mass[i],"Новый массив №",i);	//вывод нового объекта из массива
+                print_mas(mass[i],"РќРѕРІС‹Р№ РјР°СЃСЃРёРІ в„–",i);	//РІС‹РІРѕРґ РЅРѕРІРѕРіРѕ РѕР±СЉРµРєС‚Р° РёР· РјР°СЃСЃРёРІР°
                 out.println("#########################");
             }
 
-            out.printf("mass.length=%d, mass[0].mas.length=%d, mass[0].mas[0].length=%d\n"	//вывод размерности
+            out.printf("mass.length=%d, mass[0].mas.length=%d, mass[0].mas[0].length=%d\n"	//РІС‹РІРѕРґ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё
                        ,mass.length,    mass[0].mas.length,    mass[0].mas[0].length);
         }        
         else 
-            out.println("m и n не могут быть равны 0");            
+            out.println("m Рё n РЅРµ РјРѕРіСѓС‚ Р±С‹С‚СЊ СЂР°РІРЅС‹ 0");            
     }
     
 }
