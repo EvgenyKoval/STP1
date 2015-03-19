@@ -10,7 +10,7 @@ public class var11 {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int n = 0;
 		try{
-			System.out.println("Ââåäèòå n:");
+			System.out.println("Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ n:");
 			n =  Integer.parseInt(reader.readLine());
 		}catch (Exception e){
 			n = (int) (Math.random() * 100);
@@ -20,13 +20,13 @@ public class var11 {
 		int [] mas = new int[n];		
 		for (int i = 0; i < mas.length; i++) {
 			try{
-				System.out.printf("Ââåäèòå ÷èñëî ¹%d\n", (i + 1));
+				System.out.printf("Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ â„–%d\n", (i + 1));
 				mas[i] = Integer.parseInt(reader.readLine());			
 			}catch(Exception e){
 				mas[i] = (int) (Math.random() * 1000);
 			}
 		}
-		System.out.print("Íå ïğîñòûå ÷èñëà:");
+		System.out.print("ĞĞµ Ğ¿Ñ€Ğ¾ÑÑ‚Ñ‹Ğµ Ñ‡Ğ¸ÑĞ»Ğ°:");
 		for (int i = 0; i < mas.length; i++) {
 			for (int j = 2; j < mas[i]; j++) {
 				if (mas[i] % j == 0) {
@@ -36,7 +36,7 @@ public class var11 {
 				if (mas[i] == j + 1) simpleNumber.add(mas[i]);
 			}
 		}
-		System.out.print("\nÏğîñòûå ÷èñëà:");
+		System.out.print("\nĞŸÑ€Ğ¾ÑÑ‚Ñ‹Ğµ Ñ‡Ğ¸ÑĞ»Ğ°:");
 		for (int i = 0; i < simpleNumber.size(); i++) {
 			System.out.printf(" %d", simpleNumber.get(i));
 		}
