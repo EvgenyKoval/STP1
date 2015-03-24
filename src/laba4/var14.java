@@ -137,6 +137,7 @@ public class var14
             Matrix[] mass = new Matrix[m]; //объявление массива объектов размерности m
             for (byte i = 0; i < m; i++)
             {
+				out.printf("Массив №%d\n",(i + 1));
                 mass[i] = new Matrix(n);	//инициализация массива объектов
             }
 
